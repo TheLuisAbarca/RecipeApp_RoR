@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<% if current_user%>
+  <div class="text-end pb-4">
+    <%= link_to "New recipe", new_recipe_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe_path(recipe), class: 'text-decoration-none text-dark' do %>
+      <%= render recipe %>
+    <% end %>
+  <% end %>
+</div>

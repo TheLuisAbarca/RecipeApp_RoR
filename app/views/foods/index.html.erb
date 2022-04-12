@@ -8,6 +8,8 @@
   </div>
 <% end %>
 
+<%= paginate @foods %>
+
 <table class="table table-bordered table-striped">
   <thead>
     <tr class="text-center">
@@ -39,3 +41,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @foods %>

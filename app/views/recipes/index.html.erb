@@ -6,6 +6,7 @@
   </div>
 <% end %>
 
+<%= paginate @recipes %>
 <div id="recipes" class="d-flex gap-3 flex-column">
   <% if @recipes.length === 0 %>
     <div class="w-100 text-center fs-4 fw-bold border border-dark border-2 p-2">No Recipes found</div>
@@ -17,3 +18,4 @@
     <% end %>
   <% end %>
 </div>
+<%= paginate @recipes %>

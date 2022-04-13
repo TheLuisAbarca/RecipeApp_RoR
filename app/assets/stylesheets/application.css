@@ -88,3 +88,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+input[type='checkbox'] {
+  transform: scale(2);
+}

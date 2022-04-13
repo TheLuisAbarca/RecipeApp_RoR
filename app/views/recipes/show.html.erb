@@ -47,7 +47,7 @@
           <% @recipe.recipe_foods.each do |ing| %>
             <tr class="text-center">
               <td><%= ing.food.name %></td>
-              <td><%= ing.quantity %></td>
+              <td><%= ing.quantity %> <%= ing.food.measurement_unit %></td>
               <td><%= ing.food.price * ing.quantity %></td>
               <% if current_user.id == @recipe.user_id %>
                 <td class="d-flex gap-3 justify-content-center">

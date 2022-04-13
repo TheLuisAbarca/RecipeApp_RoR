@@ -53,6 +53,22 @@ class RecipesController < ApplicationController
     end
   end
 
+  def public
+    @recipes = Recipe.where(public: true).order(:id).page(params[:page]).per(2)
+    @total_price = []
+    @recipes.each do |recipe| 
+      @total_price << recipe.recipe_foods.inject(0){|sum,e| sum + (e.food.price * e.quantity)}
+    end
+    #@total_price = @recipes.each do |recipe| 
+    #  recipe.inject(0){|sum,e| sum + (e.price * e.quantity)}
+    #end
+  end
+
+  def shopping_list
+    @ingredient = RecipeFood.where(recipe_id: params[:recipe_id])
+    @total_price = @ingredient.inject(0){|sum,e| sum + (e.food.price * e.quantity)}
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

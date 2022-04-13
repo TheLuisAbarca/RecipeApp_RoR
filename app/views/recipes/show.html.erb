@@ -18,8 +18,10 @@
     </div>
     <div class="row">
       <div class="d-flex justify-content-between pb-4">
-        <input type="button" class="btn btn-primary" value="Generate Shopping List" disabled>
-        <a href="/recipe_foods/<%= @recipe.id %>" class="btn btn-success">Add ingredient</a>
+        <a href="/shopping_list/<%= @recipe.id %>" class="btn btn-primary">Generate Shopping List</a>
+        <% if current_user.id == @recipe.user_id %>
+          <a href="/recipe_foods/<%= @recipe.id %>" class="btn btn-success">Add ingredient</a>
+        <% end %>
       </div>
     </div>
   </div>

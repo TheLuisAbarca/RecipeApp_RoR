@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
+  skip_before_action :authenticate_user!, only: %i[public show shopping_list]
+
   # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.includes(recipe_foods: [:food]).order(:id).page(params[:page]).per(2)
@@ -59,9 +61,6 @@ class RecipesController < ApplicationController
     @recipes.each do |recipe|
       @total_price << recipe.recipe_foods.inject(0) { |sum, e| sum + (e.food.price * e.quantity) }
     end
-    # @total_price = @recipes.each do |recipe|
-    #  recipe.inject(0){|sum,e| sum + (e.price * e.quantity)}
-    # end
   end
 
   def shopping_list

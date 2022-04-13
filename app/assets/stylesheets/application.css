@@ -89,6 +89,6 @@ select {
   }
 }
 
-input[type='checkbox'] {
+.public {
   transform: scale(2);
 }

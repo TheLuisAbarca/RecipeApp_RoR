@@ -14,9 +14,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food.recipe_id = params[:recipe_id]
     @recipe_food.food_id = params[:food_id]
     @recipe_food.quantity = params[:quantity]
-    if @recipe_food.quantity == nil
-      @recipe_food.quantity = 1
-    end
+    @recipe_food.quantity = 1 if @recipe_food.quantity.nil?
     respond_to do |format|
       if @recipe_food.save
         format.html { redirect_to recipe_url(@recipe_food.recipe_id), notice: 'Recipe food was successfully created.' }
@@ -36,9 +34,7 @@ class RecipeFoodsController < ApplicationController
   def update
     @recipe_food = RecipeFood.find_by(recipe_id: params[:id])
     @recipe_food.quantity = params[:quantity]
-    if @recipe_food.quantity == nil
-      @recipe_food.quantity = 1
-    end
+    @recipe_food.quantity = 1 if @recipe_food.quantity.nil?
     respond_to do |format|
       if @recipe_food.save
         format.html { redirect_to recipe_url(@recipe_food.recipe_id), notice: 'Recipe food was successfully updated.' }

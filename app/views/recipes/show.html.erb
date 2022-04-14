@@ -13,7 +13,7 @@
       <div class="col-3">
         <div class="d-flex align-items-center fw-bold fs-3 gap-4">
           <%= form_with(model: @recipe) do |form| %>
-            Public <%= form.check_box :public, :value => @recipe.public, class: 'text-white bg-dark public' %>
+            Public <%= form.check_box :public, :value => @recipe.public, disabled: true, class: 'text-white bg-dark public' %>
           <% end %>
         </div>
       </div>

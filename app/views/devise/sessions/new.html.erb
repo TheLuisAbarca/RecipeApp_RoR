@@ -21,14 +21,17 @@
       </div>
     <% end %>
 
-    <div class="actions d-flex offset-10 col-2 justify-content-end">
-      <%= f.submit "Log in", class: 'btn btn-primary col-7 btn-lg' %>
+    <div class="actions d-flex offset-8 col-4 justify-content-end">
+      <%= f.submit "Log in", class: 'btn btn-primary col-7 btn-lg fad fa-sign-out' %>
     </div>
   <% end %>
 
   <div class="container pt-3">
     <div class="d-flex gap-3 w-100 justify-content-center">
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to new_user_registration_path, class: "btn btn-primary btn-lg" do%>
+        <i class="fad fa-sign-out"></i>
+        <span class="">Sign up</span>
+      <% end %>
     </div>
   </div>
 
